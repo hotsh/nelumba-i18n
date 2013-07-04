@@ -1,0 +1,68 @@
+es:
+  action:
+    favorite: "favorite"
+    share:    "share"
+    reply:    "reply"
+    save:     "save"
+
+  field:
+    title: "title"
+
+  verb:
+    favorite:    "favorited"
+    share:       "shared"
+    post:        "puso"
+    follow:      "followed"
+    like:        "liked"
+    join:        "joined"
+    play:        "played"
+    listen:      "listened"
+    update:      "updated"
+    tag:         "tagged"
+    save:        "saved"
+    make-friend: "became friends"
+
+  object:
+    article:           "artículo"
+    singular_article:  "un artículo"
+    plural_article:    "artículos"
+
+    audio:             "audio"
+    singular_audio:    "un audio"
+    plural_audio:      "audios"
+
+    video:             "vídeo"
+    singular_video:    "un vídeo"
+    plural_video:      "vídeos"
+
+    image:             "imagen"
+    singular_image:    "una imagen"
+    plural_image:      "imagenes"
+
+    place:             "lugar"
+    singular_place:    "un lugar"
+    plural_place:      "lugares"
+
+    activity:          "activity"
+    singular_activity: "an activity"
+    plural_activity:   "activities"
+
+    list:              "list"
+    singular_list:     "a list"
+    plural_list:       "lists"
+
+    status:            "status"
+    singular_status:   "a status"
+    plural_status:     "statuses"
+
+    note:              "nota"
+    singular_note:     "una nota"
+    plural_note:       "notas"
+
+    comment:           "comment"
+    singular_comment:  "a comment"
+    plural_comment:    "comments"
+
+    file:              "file"
+    singular_file:     "a file"
+    plural_files:      "files"
