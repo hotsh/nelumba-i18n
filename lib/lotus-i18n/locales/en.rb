@@ -6,14 +6,20 @@ module Lotus
       # activity: Hash containing the following fields:
       #   :actor  => The display name of the actor.
       #   :verb   => The verb for the action.
-      #   :object => The type of object of the action.
       #   :author => The display name of the author that created the object.
       #   :target => The display name of the recipient of the object.
+      #   :object => The type of object of the action.
+      #   :person => Used in place of object. The name of the person the action
+      #              is done upon.
       def self.sentence(activity)
         actor = activity[:actor]
         verb = Lotus::I18n.verb(activity[:verb])
-        object = Lotus::I18n.single_object(activity[:object])
         target = activity[:target]
+        if activity[:person]
+          object = activity[:person]
+        else
+          object = Lotus::I18n.single_object(activity[:object])
+        end
 
         "#{actor} #{verb} #{object}"
       end
