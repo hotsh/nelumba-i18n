@@ -22,31 +22,15 @@ module Lotus
         target = activity[:target]
 
         if target
-          # TODO: Combine 'a' and 'el' into 'al' when necessary
-          "#{actor} #{verb} #{object} a #{target}"
+          if target.start_with? "el "
+            target = "al #{target[3..-1]}"
+          else
+            target = "a #{target}"
+          end
+          "#{actor} #{verb} #{object} #{target}"
         else
           "#{actor} #{verb} #{object}"
         end
-      end
-
-      # Reflects the given object when used as a singular.
-      def self.single_object(object)
-        article = "a"
-        if ['a', 'e', 'i', 'o', 'u'].include? object[0]
-          article = "an"
-        end
-
-        "#{article} #{object}"
-      end
-
-      # Reflects the given object when used as a plural.
-      def self.plural_object(object)
-        suffix = 's'
-        if ['s'].include? object[-1]
-          suffix = 'es'
-        end
-
-        "#{object}#{suffix}"
       end
     end
   end

@@ -20,7 +20,6 @@ module Lotus
       token = args.shift
       options = args.last if args.last.is_a? Hash
       self.translate("object.singular_#{token}", *args)
-      #Lotus::Locales.engine(options).single_object(self.object(*args))
     end
 
     # Translates the given object as a plural for the current locale.
@@ -28,7 +27,6 @@ module Lotus
       token = args.shift
       options = args.last if args.last.is_a? Hash
       self.translate("object.plural_#{token}", *args)
-      #Lotus::Locales.engine(options).plural_object(self.object(*args))
     end
 
     # Translates the given object for the current locale.

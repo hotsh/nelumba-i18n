@@ -41,26 +41,6 @@ module Lotus
           "#{actor} #{verb} #{object}"
         end
       end
-
-      # Reflects the given object when used as a singular.
-      def self.single_object(object)
-        article = "a"
-        if ['a', 'e', 'i', 'o', 'u'].include? object[0]
-          article = "an"
-        end
-
-        "#{article} #{object}"
-      end
-
-      # Reflects the given object when used as a plural.
-      def self.plural_object(object)
-        suffix = 's'
-        if ['s'].include? object[-1]
-          suffix = 'es'
-        end
-
-        "#{object}#{suffix}"
-      end
     end
   end
 end
