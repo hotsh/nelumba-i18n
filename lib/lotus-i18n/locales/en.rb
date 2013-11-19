@@ -14,14 +14,18 @@ module Lotus
       def self.sentence(activity)
         actor = activity[:actor]
         verb = Lotus::I18n.verb(activity[:verb])
-        target = activity[:target]
         if activity[:person]
           object = activity[:person]
         else
           object = Lotus::I18n.single_object(activity[:object])
         end
+        target = activity[:target]
 
-        "#{actor} #{verb} #{object}"
+        if target
+          "#{actor} #{verb} #{object} to #{target}"
+        else
+          "#{actor} #{verb} #{object}"
+        end
       end
 
       # Reflects the given object when used as a singular.

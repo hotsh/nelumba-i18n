@@ -21,7 +21,12 @@ module Lotus
         end
         target = activity[:target]
 
-        "#{actor} #{verb} #{object}"
+        if target
+          # TODO: Combine 'a' and 'el' into 'al' when necessary
+          "#{actor} #{verb} #{object} a #{target}"
+        else
+          "#{actor} #{verb} #{object}"
+        end
       end
 
       # Reflects the given object when used as a singular.
