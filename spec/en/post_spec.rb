@@ -1,14 +1,15 @@
 require_relative '../helper.rb'
 
-describe Lotus::Locales::En do
+describe Lotus::I18n do
   describe "sentence" do
     describe "for post objects" do
       describe "with just objects" do
         language_yaml(:en, :post)["object"].each do |k,v|
           hash = {:verb   => :post,
+                  :locale => :en,
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::Locales::En.sentence(hash).must_equal v
+            Lotus::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -16,10 +17,11 @@ describe Lotus::Locales::En do
       describe "with objects and actors" do
         language_yaml(:en, :post)["actor_object"].each do |k,v|
           hash = {:verb => :post,
+                  :locale => :en,
                   :actor => "wilkie",
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::Locales::En.sentence(hash).must_equal v
+            Lotus::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -27,11 +29,12 @@ describe Lotus::Locales::En do
       describe "with objects and object owners and actors" do
         language_yaml(:en, :post)["actor_owner_object"].each do |k,v|
           hash = {:verb => :post,
+                  :locale => :en,
                   :actor => "wilkie",
                   :object_owner => "carol",
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::Locales::En.sentence(hash).must_equal v
+            Lotus::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -41,11 +44,12 @@ describe Lotus::Locales::En do
           pronoun = pronoun.intern
           hash_1.each do |k, v|
             hash = {:verb => :post,
+                    :locale => :en,
                     :actor => "wilkie",
                     :object_owner => pronoun,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::Locales::En.sentence(hash).must_equal v
+              Lotus::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -56,10 +60,11 @@ describe Lotus::Locales::En do
           pronoun = pronoun.intern
           hash_1.each do |k, v|
             hash = {:verb   => :post,
+                    :locale => :en,
                     :actor  => pronoun,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::Locales::En.sentence(hash).must_equal v
+              Lotus::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -70,10 +75,11 @@ describe Lotus::Locales::En do
           target = target.intern
           hash_1.each do |k, v|
             hash = {:verb   => :post,
+                    :locale => :en,
                     :target => target,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::Locales::En.sentence(hash).must_equal v
+              Lotus::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -84,11 +90,12 @@ describe Lotus::Locales::En do
           target = target.intern
           hash_1.each do |k, v|
           hash = {:verb   => :post,
+                  :locale => :en,
                   :actor  => "wilkie",
                   :target => target,
                   :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::Locales::En.sentence(hash).must_equal v
+              Lotus::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -101,11 +108,12 @@ describe Lotus::Locales::En do
             pronoun = pronoun.intern
             hash_2.each do |k, v|
             hash = {:verb   => :post,
+                    :locale => :en,
                     :target => target,
                     :target_owner => pronoun,
                     :object => k.intern}
               it "should translate #{hash} to '#{v}'" do
-                Lotus::Locales::En.sentence(hash).must_equal v
+                Lotus::I18n.sentence(hash).must_equal v
               end
             end
           end
@@ -119,12 +127,13 @@ describe Lotus::Locales::En do
             pronoun = pronoun.intern
             hash_2.each do |k, v|
               hash = {:verb   => :post,
+                      :locale => :en,
                       :actor  => "wilkie",
                       :target => target,
                       :target_owner => pronoun,
                       :object => k.intern}
               it "should translate #{hash} to '#{v}'" do
-                Lotus::Locales::En.sentence(hash).must_equal v
+                Lotus::I18n.sentence(hash).must_equal v
               end
             end
           end

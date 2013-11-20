@@ -74,6 +74,58 @@ module Lotus
     def self.sentence(options = {})
       options ||= {}
 
+      components = {}
+
+      if options[:actor].is_a? Symbol
+        components[:actor_pronoun]  = options[:actor]
+      else
+        components[:actor]  = options[:actor]
+      end
+
+      if options[:actors].is_a? Symbol
+        components[:actors_pronoun] = options[:actors]
+      else
+        components[:actors] = options[:actors]
+      end
+
+      if options[:object_owner].is_a? Symbol
+        components[:object_owner_pronoun] = options[:object_owner]
+      else
+        components[:object_owner] = options[:object_owner]
+      end
+
+      if options[:object_owners].is_a? Symbol
+        components[:object_owners_pronoun] = options[:object_owners]
+      else
+        components[:object_owners] = options[:object_owners]
+      end
+
+      if options[:target_owner].is_a? Symbol
+        components[:target_owner_pronoun] = options[:target_owner]
+      else
+        components[:target_owner] = options[:target_owner]
+      end
+
+      if options[:target_owners].is_a? Symbol
+        components[:target_owners_pronoun] = options[:target_owners]
+      else
+        components[:target_owners] = options[:target_owners]
+      end
+
+      components[:target]  = options[:target]
+      components[:targets] = options[:targets]
+      components[:object]  = options[:object]
+      components[:objects] = options[:objects]
+      components[:verb]    = options[:verb]
+      components[:action]  = options[:action]
+      components[:field]   = options[:field]
+
+      components.keys.each do |key|
+        if components[key].nil?
+          components.delete key
+        end
+      end
+
       locale = options[:locale].to_s || ::I18n.locale.to_s
       default = ::I18n.default_locale.to_s
 
@@ -88,12 +140,15 @@ module Lotus
       end
 
       filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-      grammar = YAML.load_file(filename)
+      @@grammar ||= {}
+      @@grammar[filename] ||= YAML.load_file(filename)
+      grammar = @@grammar[filename]
 
       result = ""
 
       grammar[locale].each do |hash|
-        if hash["for"].select{|e| !components.keys.include?(e.intern)}.empty?
+        if components.keys.select{|e| !hash["for"].include?(e.to_s)}.empty? &&
+           components.keys.count == hash["for"].count
           if hash["match"] && hash["match"].count > 0
             matches = hash["match"]
 
@@ -111,7 +166,7 @@ module Lotus
           result = hash["do"]
           components.each do |component, value|
             if value.is_a? Symbol
-              result = result.gsub /\S*%#{Regexp.escape(component.to_s)}%\S*/ do |match|
+              result = result.gsub /[\.a-zA-Z_]*%#{Regexp.escape(component.to_s)}%[\.a-zA-Z_]*/ do |match|
                 self.translate(match.gsub("%#{component.to_s}%", value.to_s).strip)
               end
             else
