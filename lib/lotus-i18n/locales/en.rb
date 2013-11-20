@@ -16,17 +16,29 @@ module Lotus
       def self.sentence(activity)
         actor = activity[:actor]
         verb = Lotus::I18n.verb(activity[:verb])
-        if [:you].include? activity[:person]
+        if [:you, :he, :she, :e,  :ey, :Tho, :hu, :per, :thon, :jee,
+            :ve,  :xe, :ze,  :zhe].include? activity[:person]
           object = activity[:person]
         elsif activity[:person]
           object = activity[:person]
         end
-        target = activity[:target]
 
-        if [:our,  :their, :his,  :her, :em,  :Thor,
+        if [:our,  :their, :his,  :her, :em,  :Thor, :your,
+            :hum,  :per,   :thon, :jem, :ver, :xem,
+            :zir,  :zem,   :hir,  :mer, :zhim].include? activity[:target_owner]
+          target = Lotus::I18n.object(activity[:target])
+          target = "#{activity[:target_owner]} #{target}"
+        elsif activity[:target_owner]
+          target = Lotus::I18n.object(activity[:target])
+          target = "#{activity[:target_owner]}'s #{target}"
+        elsif activity[:target]
+          target = Lotus::I18n.single_object(activity[:target])
+        end
+
+        if [:our,  :their, :his,  :her, :em,  :Thor, :your,
             :hum,  :per,   :thon, :jem, :ver, :xem,
             :zir,  :zem,   :hir,  :mer, :zhim].include? activity[:object_owner]
-          object = Lotus::I18n.single_object(activity[:object])
+          object = Lotus::I18n.object(activity[:object])
           object = "#{activity[:object_owner]} #{object}"
         elsif activity[:object_owner]
           object = Lotus::I18n.object(activity[:object])
@@ -36,9 +48,9 @@ module Lotus
         end
 
         if target
-          "#{actor} #{verb} #{object} to #{target}"
+          "#{actor} #{verb} #{object} to #{target}".strip
         else
-          "#{actor} #{verb} #{object}"
+          "#{actor} #{verb} #{object}".strip
         end
       end
     end

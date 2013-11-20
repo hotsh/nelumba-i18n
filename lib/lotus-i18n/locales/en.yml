@@ -66,3 +66,7 @@ en:
     file:              "file"
     singular_file:     "a file"
     plural_files:      "files"
+
+    album:             "album"
+    singular_album:    "an album"
+    plural_album:      "albums"
