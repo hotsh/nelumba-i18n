@@ -72,7 +72,57 @@ module Lotus
 
     # Produces a sentence describing the given Lotus::Activity.
     def self.sentence(options = {})
-      Lotus::Locales.engine(options).sentence(options)
+      options ||= {}
+
+      locale = options[:locale].to_s || ::I18n.locale.to_s
+      default = ::I18n.default_locale.to_s
+
+      # Use the system default locale and then English as fallback
+      filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
+      unless File.exist? filename
+        locale = default
+        filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
+        unless File.exist? filename
+          locale = "en"
+        end
+      end
+
+      filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
+      grammar = YAML.load_file(filename)
+
+      result = ""
+
+      grammar[locale].each do |hash|
+        if hash["for"].select{|e| !components.keys.include?(e.intern)}.empty?
+          if hash["match"] && hash["match"].count > 0
+            matches = hash["match"]
+
+            unless hash["match"][0].is_a? Array
+              matches = [hash["match"]]
+            end
+
+            violations = matches.select do |rule|
+              !components[rule[0].intern].match(Regexp.new(rule[1]))
+            end
+
+            next unless violations.empty?
+          end
+
+          result = hash["do"]
+          components.each do |component, value|
+            if value.is_a? Symbol
+              result = result.gsub /\S*%#{Regexp.escape(component.to_s)}%\S*/ do |match|
+                self.translate(match.gsub("%#{component.to_s}%", value.to_s).strip)
+              end
+            else
+              result = result.gsub("%#{component.to_s}%", value.to_s)
+            end
+          end
+          break
+        end
+      end
+
+      result
     end
   end
 end

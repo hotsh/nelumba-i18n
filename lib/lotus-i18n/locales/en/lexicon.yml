@@ -1,0 +1,135 @@
+en:
+  action:
+    favorite:    "favorite"
+    unfavorite:  "unfavorite"
+    follow:      "follow"
+    unfollow:    "unfollow"
+    like:        "like"
+    unlike:      "unlike"
+    mention:     "mention"
+    reply:       "reply"
+    save:        "save"
+    share:       "share"
+    unshare:     "unshare"
+    subscribe:   "subscribe"
+    unsubscribe: "unsubscribe"
+    tag:         "tag"
+    untag:       "untag"
+
+  category:
+    activities: "activities"
+    mentions:   "mentions"
+    replies:    "replies"
+    timeline:   "timeline"
+
+  field:
+    title:    "title"
+    password: "password"
+    username: "username"
+    avatar:   "avatar"
+
+  possessive_pronoun:
+    our:   "our"
+    their: "their"
+    his:   "his"
+    her:   "her"
+    em:    "em"
+    Thor:  "Thor"
+    your:  "your"
+    hum:   "hum"
+    per:   "per"
+    thon:  "thon"
+    jem:   "jem"
+    ver:   "ver"
+    xem:   "xem"
+    zir:   "zir"
+    zem:   "zem"
+    hir:   "hir"
+    mer:   "mer"
+    zhim:  "zhim"
+
+  pronoun:
+    you:  "you"
+    he:   "he"
+    she:  "she"
+    they: "they"
+    e:    "e"
+    ey:   "ey"
+    Tho:  "Tho"
+    hu:   "hu"
+    per:  "per"
+    thon: "thon"
+    jee:  "jee"
+    ve:   "ve"
+    xe:   "xe"
+    ze:   "ze"
+    zhe:  "zhe"
+
+  verb:
+    reply:       "replied"
+    mention:     "mentioned"
+    favorite:    "favorited"
+    share:       "shared"
+    post:        "posted"
+    follow:      "followed"
+    like:        "liked"
+    join:        "joined"
+    play:        "played"
+    listen:      "listened"
+    update:      "updated"
+    tag:         "tagged"
+    save:        "saved"
+    make-friend: "became friends"
+
+  object:
+    article:              "article"
+    singular_article:     "an article"
+    plural_article:       "articles"
+
+    audio:                "audio"
+    singular_audio:       "audio"
+    plural_audio:         "audio"
+
+    video:                "video"
+    singular_video:       "a video"
+    plural_video:         "videos"
+
+    image:                "image"
+    singular_image:       "an image"
+    plural_image:         "images"
+
+    place:                "place"
+    singular_place:       "a place"
+    plural_place:         "places"
+
+    activity:             "activity"
+    singular_activity:    "an activity"
+    plural_activity:      "activities"
+
+    list:                 "list"
+    singular_list:        "a list"
+    plural_list:          "lists"
+
+    status:               "status"
+    singular_status:      "a status"
+    plural_status:        "statuses"
+
+    note:                 "note"
+    singular_note:        "a note"
+    plural_note:          "notes"
+
+    comment:              "comment"
+    singular_comment:     "a comment"
+    plural_comment:       "comments"
+
+    file:                 "file"
+    singular_file:        "a file"
+    plural_files:         "files"
+
+    album:                "album"
+    singular_album:       "an album"
+    plural_album:         "albums"
+
+    photo-album:          "photo album"
+    singular_photo-album: "a photo album"
+    plural_photo-album:   "photo albums"
