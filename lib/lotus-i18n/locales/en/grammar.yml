@@ -1,0 +1,684 @@
+en:
+  # played a game
+  - for: ["verb", "object"]
+    do:  "verb.%verb% object.singular_%object%"
+  # his album
+  - for: ["actor_pronoun", "object"]
+    do:  "possessive_pronoun.%actor_pronoun%.singular object.%object%"
+  # their book
+  - for: ["actors_pronoun", "object"]
+    do:  "possessive_pronoun.%actors_pronoun%.plural object.%object%"
+  # her articles
+  - for: ["actor_pronoun", "objects"]
+    do:  "possessive_pronoun.%actor%.singular object.plural_%objects%"
+  # their files
+  - for: ["actors_pronoun", "objects"]
+    do:  "possessive_pronoun.%actor%.plural object.plural_%objects%"
+  # carol's video
+  - for: ["actor", "object"]
+    do:  "%actor%'s object.%object%"
+  # wilkie's files
+  - for: ["actor", "objects"]
+    do:  "%actor%'s object.plural_%objects%"
+  # the woodworkers' list
+  - for:   ["actors", "object"]
+    match: ["actors", "s$"]
+    do:    "%actors%' object.%object%"
+  # the family's note
+  - for: ["actors", "object"]
+    do:  "%actors%' object.%object%"
+  # the musicians' files
+  - for:   ["actors", "objects"]
+    match: ["actors", "s$"]
+    do:    "%actors%' object.plural_%objects%"
+  # the group's files
+  - for: ["actors", "objects"]
+    do:  "%actors%'s object.plural_%objects%"
+  # ey posted a note
+  - for: ["actor_pronoun", "object", "verb"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object%"
+  # they posted a note
+  - for: ["actors_pronoun", "object", "verb"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object%"
+  # wilkie posted a note
+  - for: ["actor", "object", "verb"]
+    do:  "%actor% verb.%verb% object.singular_%object%"
+  # the group posted a note
+  - for: ["actors", "object", "verb"]
+    do:  "%actors% verb.%verb% object.singular_%object%"
+  # ey posted notes
+  - for: ["actor_pronoun", "objects", "verb"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects%"
+  # they posted notes
+  - for: ["actors_pronoun", "objects", "verb"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects%"
+  # wilkie posted notes
+  - for: ["actor", "objects", "verb"]
+    do:  "%actor% verb.%verb% object.plural_%objects%"
+  # the group posted notes
+  - for: ["actors", "objects", "verb"]
+    do:  "%actors% verb.%verb% object.plural_%objects%"
+  # posted a note to an album
+  - for: ["object", "verb", "target"]
+    do:  "verb.%verb% object.singular_%object% to object.singular_%target%"
+  # posted a note to some albums
+  - for: ["object", "verb", "targets"]
+    do:  "verb.%verb% object.singular_%object% to object.plural_%targets%"
+  # posted notes to an album
+  - for: ["objects", "verb", "target"]
+    do:  "verb.%verb% object.plural_%object% to object.singular_%target%"
+  # posted notes to some albums
+  - for: ["objects", "verb", "targets"]
+    do:  "verb.%verb% object.plural_%object% to object.plural_%targets%"
+  # posted a note to her album
+  - for: ["object", "verb", "target", "target_owner_pronoun"]
+    do:  "verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted a note to her albums
+  - for: ["object", "verb", "targets", "target_owner_pronoun"]
+    do:  "verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted notes to his album
+  - for: ["objects", "verb", "target", "target_owner_pronoun"]
+    do:  "verb.%verb% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted notes to his albums
+  - for: ["objects", "verb", "targets", "target_owner_pronoun"]
+    do:  "verb.%verb% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted notes to their album
+  - for: ["objects", "verb", "target", "target_owners_pronoun"]
+    do:  "verb.%verb% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # posted notes to their albums
+  - for: ["objects", "verb", "targets", "target_owners_pronoun"]
+    do:  "verb.%verb% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted a note to an album
+  - for: ["actor_pronoun", "object", "verb", "target"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to object.singular_%target%"
+  # they posted a note to an album
+  - for: ["actors_pronoun", "object", "verb", "target"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to object.singular_%target%"
+  # wilkie posted a note to an album
+  - for: ["actor", "object", "verb", "target"]
+    do:  "%actor% verb.%verb% object.singular_%object% to object.singular_%target%"
+  # the group posted a note to an album
+  - for: ["actors", "object", "verb", "target"]
+    do:  "%actors% verb.%verb% object.singular_%object% to object.singular_%target%"
+  # ey posted notes to an album
+  - for: ["actor_pronoun", "objects", "verb", "target"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to object.singular_%target%"
+  # they posted notes to an album
+  - for: ["actors_pronoun", "objects", "verb", "target"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to object.singular_%target%"
+  # wilkie posted notes to an album
+  - for: ["actor", "objects", "verb", "target"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to object.singular_%target%"
+  # the group posted notes to an album
+  - for: ["actors", "objects", "verb", "target"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to object.singular_%target%"
+  # ey posted a note to some albums
+  - for: ["actor_pronoun", "object", "verb", "targets"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+  # they posted a note to some albums
+  - for: ["actors_pronoun", "object", "verb", "targets"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+  # wilkie posted a note to some albums
+  - for: ["actor", "object", "verb", "targets"]
+    do:  "%actor% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+  # the group posted a note to some albums
+  - for: ["actors", "object", "verb", "targets"]
+    do:  "%actors% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+  # ey posted notes to some albums
+  - for: ["actor_pronoun", "objects", "verb", "targets"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+  # they posted notes to some albums
+  - for: ["actors_pronoun", "objects", "verb", "targets"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+  # wilkie posted notes to some albums
+  - for: ["actor", "objects", "verb", "targets"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+  # the group posted notes to some albums
+  - for: ["actors", "objects", "verb", "targets"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+  # ey posted a note to her album
+  - for: ["actor_pronoun", "object", "verb", "target", "target_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # they posted a note to her album
+  - for: ["actors_pronoun", "object", "verb", "target", "target_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # wilkie posted a note to her album
+  - for: ["actor", "object", "verb", "target", "target_owner_pronoun"]
+    do:  "%actor% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # the group posted a note to her album
+  - for: ["actors", "object", "verb", "target", "target_owner_pronoun"]
+    do:  "%actors% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # ey posted notes to her album
+  - for: ["actor_pronoun", "objects", "verb", "target", "target_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # they posted notes to her album
+  - for: ["actors_pronoun", "objects", "verb", "target", "target_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # wilkie posted notes to her album
+  - for: ["actor", "objects", "verb", "target", "target_owner_pronoun"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # the group posted notes to her album
+  - for: ["actors", "objects", "verb", "target", "target_owner_pronoun"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # ey posted a note to her albums
+  - for: ["actor_pronoun", "object", "verb", "targets", "target_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # they posted a note to her albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "target_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # wilkie posted a note to her albums
+  - for: ["actor", "object", "verb", "targets", "target_owner_pronoun"]
+    do:  "%actor% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # the group posted a note to her albums
+  - for: ["actors", "object", "verb", "targets", "target_owner_pronoun"]
+    do:  "%actors% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # ey posted notes to her albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "target_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # they posted notes to her albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "target_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # wilkie posted notes to her albums
+  - for: ["actor", "objects", "verb", "targets", "target_owner_pronoun"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # the group posted notes to her albums
+  - for: ["actors", "objects", "verb", "targets", "target_owner_pronoun"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # ey posted a note to their album
+  - for: ["actor_pronoun", "object", "verb", "target", "target_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # they posted a note to their album
+  - for: ["actors_pronoun", "object", "verb", "target", "target_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # wilkie posted a note to their album
+  - for: ["actor", "object", "verb", "target", "target_owners_pronoun"]
+    do:  "%actor% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # the group posted a note to their album
+  - for: ["actors", "object", "verb", "target", "target_owners_pronoun"]
+    do:  "%actors% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # ey posted notes to their album
+  - for: ["actor_pronoun", "objects", "verb", "target", "target_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # they posted notes to their album
+  - for: ["actors_pronoun", "objects", "verb", "target", "target_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # wilkie posted notes to their album
+  - for: ["actor", "objects", "verb", "target", "target_owners_pronoun"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # the group posted notes to their album
+  - for: ["actors", "objects", "verb", "target", "target_owners_pronoun"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # ey posted a note to their albums
+  - for: ["actor_pronoun", "object", "verb", "targets", "target_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # they posted a note to their albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "target_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # wilkie posted a note to their albums
+  - for: ["actor", "object", "verb", "targets", "target_owners_pronoun"]
+    do:  "%actor% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # the group posted a note to their albums
+  - for: ["actors", "object", "verb", "targets", "target_owners_pronoun"]
+    do:  "%actors% verb.%verb% object.singular_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted notes to their albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "target_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # they posted notes to their albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "target_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # wilkie posted notes to their albums
+  - for: ["actor", "objects", "verb", "targets", "target_owners_pronoun"]
+    do:  "%actor% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # the group posted notes to their albums
+  - for: ["actors", "objects", "verb", "targets", "target_owners_pronoun"]
+    do:  "%actors% verb.%verb% object.plural_%objects% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted their note
+  - for: ["actor_pronoun", "object", "verb", "object_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object%"
+  # they posted their note
+  - for: ["actors_pronoun", "object", "verb", "object_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object%"
+  # wilkie posted their note
+  - for: ["actor", "object", "verb", "object_owners_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object%"
+  # the group posted their note
+  - for: ["actors", "object", "verb", "object_owners_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object%"
+  # ey posted their notes
+  - for: ["actor_pronoun", "objects", "verb", "object_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%objects%"
+  # they posted their notes
+  - for: ["actors_pronoun", "objects", "verb", "object_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%objects%"
+  # wilkie posted their notes
+  - for: ["actor", "objects", "verb", "object_owners_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%objects%"
+  # the group posted their notes
+  - for: ["actors", "objects", "verb", "object_owners_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%objects%"
+  # posted their note to an album
+  - for: ["object", "verb", "target", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object% to object.singular_%target%"
+  # posted their note to some albums
+  - for: ["object", "verb", "targets", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object% to %object_owner%'s object.plural_%targets%"
+  # posted their notes to an album
+  - for: ["objects", "verb", "target", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%object% to object.singular_%target%"
+  # posted their notes to some albums
+  - for: ["objects", "verb", "targets", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.plural_%object% to object.plural_%targets%"
+  # posted their note to her album
+  - for: ["object", "verb", "target", "target_owner_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun%' object.%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted their note to her albums
+  - for: ["object", "verb", "targets", "target_owner_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to possessive_pronoun.%target_owner_pronoun% %object_owner%'s object.plural_%targets%"
+  # posted their notes to his album
+  - for: ["objects", "verb", "target", "target_owner_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted their notes to his albums
+  - for: ["objects", "verb", "targets", "target_owner_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted their notes to their album
+  - for: ["objects", "verb", "target", "target_owners_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # posted their notes to their albums
+  - for: ["objects", "verb", "targets", "target_owners_pronoun", "object_owners_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted their note to an album
+  - for: ["actor_pronoun", "object", "verb", "target", "object_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to object.singular_%target%"
+  # they posted their note to an album
+  - for: ["actors_pronoun", "object", "verb", "target", "object_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to object.singular_%target%"
+  # wilkie posted their note to an album
+  - for: ["actor", "object", "verb", "target", "object_owners_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to object.singular_%target%"
+  # the group posted their note to an album
+  - for: ["actors", "object", "verb", "target", "object_owners_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to object.singular_%target%"
+  # ey posted their notes to an album
+  - for: ["actor_pronoun", "objects", "verb", "target", "object_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to object.singular_%target%"
+  # they posted their notes to an album
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to object.singular_%target%"
+  # wilkie posted their notes to an album
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to object.singular_%target%"
+  # the group posted their notes to an album
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to object.singular_%target%"
+  # ey posted their note to some albums
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # they posted their note to some albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "object_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # wilkie posted their note to some albums
+  - for: ["actor", "object", "verb", "targets", "object_owners_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # the group posted their note to some albums
+  - for: ["actors", "object", "verb", "targets", "object_owners_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # ey posted their notes to some albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "object_owners_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # they posted their notes to some albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "object_owners_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # wilkie posted their notes to some albums
+  - for: ["actor", "objects", "verb", "targets", "object_owners_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # the group posted their notes to some albums
+  - for: ["actors", "objects", "verb", "targets", "object_owners_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owners_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # ey posted her note
+  - for: ["actor_pronoun", "object", "verb", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object%"
+  # they posted her note
+  - for: ["actors_pronoun", "object", "verb", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object%"
+  # wilkie posted her note
+  - for: ["actor", "object", "verb", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object%"
+  # the group posted her note
+  - for: ["actors", "object", "verb", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object%"
+  # ey posted her notes
+  - for: ["actor_pronoun", "objects", "verb", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects%"
+  # they posted her notes
+  - for: ["actors_pronoun", "objects", "verb", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects%"
+  # wilkie posted her notes
+  - for: ["actor", "objects", "verb", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects%"
+  # the group posted her notes
+  - for: ["actors", "objects", "verb", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects%"
+  # posted her note to an album
+  - for: ["object", "verb", "target", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to object.singular_%target%"
+  # posted her note to some albums
+  - for: ["object", "verb", "targets", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to %object_owner%'s object.plural_%targets%"
+  # posted her notes to an album
+  - for: ["objects", "verb", "target", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to object.singular_%target%"
+  # posted her notes to some albums
+  - for: ["objects", "verb", "targets", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to object.plural_%targets%"
+  # posted her note to her album
+  - for: ["object", "verb", "target", "target_owner_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted her note to her albums
+  - for: ["object", "verb", "targets", "target_owner_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to possessive_pronoun.%target_owner_pronoun% %object_owner%'s object.plural_%targets%"
+  # posted her notes to his album
+  - for: ["objects", "verb", "target", "target_owner_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted her notes to his albums
+  - for: ["objects", "verb", "targets", "target_owner_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted her notes to their album
+  - for: ["objects", "verb", "target", "target_owners_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # posted her notes to their albums
+  - for: ["objects", "verb", "targets", "target_owners_pronoun", "object_owner_pronoun"]
+    do:  "verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted her note to an album
+  - for: ["actor_pronoun", "object", "verb", "target", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to object.singular_%target%"
+  # they posted her note to an album
+  - for: ["actors_pronoun", "object", "verb", "target", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to object.singular_%target%"
+  # wilkie posted her note to an album
+  - for: ["actor", "object", "verb", "target", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to object.singular_%target%"
+  # the group posted her note to an album
+  - for: ["actors", "object", "verb", "target", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to object.singular_%target%"
+  # ey posted her notes to an album
+  - for: ["actor_pronoun", "objects", "verb", "target", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to object.singular_%target%"
+  # they posted her notes to an album
+  - for: ["actors_pronoun", "objects", "verb", "target", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to object.singular_%target%"
+  # wilkie posted her notes to an album
+  - for: ["actor", "objects", "verb", "target", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to object.singular_%target%"
+  # the group posted her notes to an album
+  - for: ["actors", "objects", "verb", "target", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to object.singular_%target%"
+  # ey posted her note to some albums
+  - for: ["actor_pronoun", "object", "verb", "targets", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # they posted her note to some albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # wilkie posted her note to some albums
+  - for: ["actor", "object", "verb", "targets", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # the group posted her note to some albums
+  - for: ["actors", "object", "verb", "targets", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.%object% to some %object_owner%'s object.plural_%targets%"
+  # ey posted her notes to some albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "object_owner_pronoun"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # they posted her notes to some albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "object_owner_pronoun"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # wilkie posted her notes to some albums
+  - for: ["actor", "objects", "verb", "targets", "object_owner_pronoun"]
+    do:  "%actor% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # the group posted her notes to some albums
+  - for: ["actors", "objects", "verb", "targets", "object_owner_pronoun"]
+    do:  "%actors% verb.%verb% possessive_pronoun.%object_owner_pronoun% object.plural_%objects% to some object.plural_%targets%"
+  # ey posted davis' note
+  - for: ["actor_pronoun", "object", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.%object%"
+  # they posted davis' note
+  - for: ["actors_pronoun", "object", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.%object%"
+  # wilkie posted davis' note
+  - for: ["actor", "object", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.%object%"
+  # the group posted davis' note
+  - for: ["actors", "object", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.%object%"
+  # ey posted davis' notes
+  - for: ["actor_pronoun", "objects", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.plural_%objects%"
+  # they posted davis' notes
+  - for: ["actors_pronoun", "objects", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.plural_%objects%"
+  # wilkie posted davis' notes
+  - for: ["actor", "objects", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.plural_%objects%"
+  # the group posted davis' notes
+  - for: ["actors", "objects", "verb", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.plural_%objects%"
+  # posted davis' note to an album
+  - for: ["object", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.%object% to object.singular_%target%"
+  # posted davis' note to some albums
+  - for: ["object", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.%object% to %object_owner%'s object.plural_%targets%"
+  # posted davis' notes to an album
+  - for: ["objects", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to object.singular_%target%"
+  # posted davis' notes to some albums
+  - for: ["objects", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to object.plural_%targets%"
+  # posted davis' note to her album
+  - for: ["object", "verb", "target", "target_owner_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted davis' note to her albums
+  - for: ["object", "verb", "targets", "target_owner_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.%object% to possessive_pronoun.%target_owner_pronoun% %object_owner%'s object.plural_%targets%"
+  # posted davis' notes to his album
+  - for: ["objects", "verb", "target", "target_owner_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted davis' notes to his albums
+  - for: ["objects", "verb", "targets", "target_owner_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted davis' notes to their album
+  - for: ["objects", "verb", "target", "target_owners_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # posted davis' notes to their albums
+  - for: ["objects", "verb", "targets", "target_owners_pronoun", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "verb.%verb% %object_owner%' object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted davis' note to an album
+  - for: ["actor_pronoun", "object", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.%object% to object.singular_%target%"
+  # they posted davis' note to an album
+  - for: ["actors_pronoun", "object", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.%object% to object.singular_%target%"
+  # wilkie posted davis' note to an album
+  - for: ["actor", "object", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.%object% to object.singular_%target%"
+  # the group posted davis' note to an album
+  - for: ["actors", "object", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.%object% to object.singular_%target%"
+  # ey posted davis' notes to an album
+  - for: ["actor_pronoun", "objects", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.plural_%objects% to object.singular_%target%"
+  # they posted davis' notes to an album
+  - for: ["actors_pronoun", "objects", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.plural_%objects% to object.singular_%target%"
+  # wilkie posted davis' notes to an album
+  - for: ["actor", "objects", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.plural_%objects% to object.singular_%target%"
+  # the group posted davis' notes to an album
+  - for: ["actors", "objects", "verb", "target", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.plural_%objects% to object.singular_%target%"
+  # ey posted davis' note to some albums
+  - for: ["actor_pronoun", "object", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.%object% to some %object_owner%'s object.plural_%targets%"
+  # they posted davis' note to some albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.%object% to some %object_owner%'s object.plural_%targets%"
+  # wilkie posted davis' note to some albums
+  - for: ["actor", "object", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.%object% to some %object_owner%'s object.plural_%targets%"
+  # the group posted davis' note to some albums
+  - for: ["actors", "object", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.%object% to some %object_owner%'s object.plural_%targets%"
+  # ey posted davis' notes to some albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%' object.plural_%objects% to some object.plural_%targets%"
+  # they posted davis' notes to some albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%' object.plural_%objects% to some object.plural_%targets%"
+  # wilkie posted davis' notes to some albums
+  - for: ["actor", "objects", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actor% verb.%verb% %object_owner%' object.plural_%objects% to some object.plural_%targets%"
+  # the group posted davis' notes to some albums
+  - for: ["actors", "objects", "verb", "targets", "object_owner"]
+    match: ["object_owner", "s$"]
+    do:  "%actors% verb.%verb% %object_owner%' object.plural_%objects% to some object.plural_%targets%"
+  # ey posted carol's note
+  - for: ["actor_pronoun", "object", "verb", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.%object%"
+  # they posted carol's note
+  - for: ["actors_pronoun", "object", "verb", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.%object%"
+  # wilkie posted carol's note
+  - for: ["actor", "object", "verb", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.%object%"
+  # the group posted carol's note
+  - for: ["actors", "object", "verb", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.%object%"
+  # ey posted carol's notes
+  - for: ["actor_pronoun", "objects", "verb", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.plural_%objects%"
+  # they posted carol's notes
+  - for: ["actors_pronoun", "objects", "verb", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.plural_%objects%"
+  # wilkie posted carol's notes
+  - for: ["actor", "objects", "verb", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.plural_%objects%"
+  # the group posted carol's notes
+  - for: ["actors", "objects", "verb", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.plural_%objects%"
+  # posted carol's note to an album
+  - for: ["object", "verb", "target", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.%object% to object.singular_%target%"
+  # posted carol's note to some albums
+  - for: ["object", "verb", "targets", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.%object% to %object_owner%'s object.plural_%targets%"
+  # posted carol's notes to an album
+  - for: ["objects", "verb", "target", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to object.singular_%target%"
+  # posted carol's notes to some albums
+  - for: ["objects", "verb", "targets", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to object.plural_%targets%"
+  # posted carol's note to her album
+  - for: ["object", "verb", "target", "target_owner_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted carol's note to her albums
+  - for: ["object", "verb", "targets", "target_owner_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.%object% to possessive_pronoun.%target_owner_pronoun% %object_owner%'s object.plural_%targets%"
+  # posted carol's notes to his album
+  - for: ["objects", "verb", "target", "target_owner_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.%target%"
+  # posted carol's notes to his albums
+  - for: ["objects", "verb", "targets", "target_owner_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to possessive_pronoun.%target_owner_pronoun% object.plural_%targets%"
+  # posted carol's notes to their album
+  - for: ["objects", "verb", "target", "target_owners_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.%target%"
+  # posted carol's notes to their albums
+  - for: ["objects", "verb", "targets", "target_owners_pronoun", "object_owner"]
+    do:  "verb.%verb% %object_owner%'s object.plural_%object% to possessive_pronoun.%target_owners_pronoun% object.plural_%targets%"
+  # ey posted carol's note to an album
+  - for: ["actor_pronoun", "object", "verb", "target", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.%object% to object.singular_%target%"
+  # they posted carol's note to an album
+  - for: ["actors_pronoun", "object", "verb", "target", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.%object% to object.singular_%target%"
+  # wilkie posted carol's note to an album
+  - for: ["actor", "object", "verb", "target", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.%object% to object.singular_%target%"
+  # the group posted carol's note to an album
+  - for: ["actors", "object", "verb", "target", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.%object% to object.singular_%target%"
+  # ey posted carol's notes to an album
+  - for: ["actor_pronoun", "objects", "verb", "target", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.plural_%objects% to object.singular_%target%"
+  # they posted carol's notes to an album
+  - for: ["actors_pronoun", "objects", "verb", "target", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.plural_%objects% to object.singular_%target%"
+  # wilkie posted carol's notes to an album
+  - for: ["actor", "objects", "verb", "target", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.plural_%objects% to object.singular_%target%"
+  # the group posted carol's notes to an album
+  - for: ["actors", "objects", "verb", "target", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.plural_%objects% to object.singular_%target%"
+  # ey posted carol's note to some albums
+  - for: ["actor_pronoun", "object", "verb", "targets", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.%object% to some %object_owner%'s object.plural_%targets%"
+  # they posted carol's note to some albums
+  - for: ["actors_pronoun", "object", "verb", "targets", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.%object% to some %object_owner%'s object.plural_%targets%"
+  # wilkie posted carol's note to some albums
+  - for: ["actor", "object", "verb", "targets", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.%object% to some %object_owner%'s object.plural_%targets%"
+  # the group posted carol's note to some albums
+  - for: ["actors", "object", "verb", "targets", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.%object% to some %object_owner%'s object.plural_%targets%"
+  # ey posted carol's notes to some albums
+  - for: ["actor_pronoun", "objects", "verb", "targets", "object_owner"]
+    do:  "pronoun.%actor_pronoun% verb.%verb% %object_owner%'s object.plural_%objects% to some object.plural_%targets%"
+  # they posted carol's notes to some albums
+  - for: ["actors_pronoun", "objects", "verb", "targets", "object_owner"]
+    do:  "pronoun.%actors_pronoun% verb.%verb% %object_owner%'s object.plural_%objects% to some object.plural_%targets%"
+  # wilkie posted carol's notes to some albums
+  - for: ["actor", "objects", "verb", "targets", "object_owner"]
+    do:  "%actor% verb.%verb% %object_owner%'s object.plural_%objects% to some object.plural_%targets%"
+  # the group posted carol's notes to some albums
+  - for: ["actors", "objects", "verb", "targets", "object_owner"]
+    do:  "%actors% verb.%verb% %object_owner%'s object.plural_%objects% to some object.plural_%targets%"
+  # played
+  - for: ["verb"]
+    do:  "verb.%verb%"
+  # follow
+  - for: ["action"]
+    do:  "action.%action%"
+  # mentions
+  - for: ["category"]
+    do:  "category.%category%"
+  # password
+  - for: ["field"]
+    do:  "field.%field%"
