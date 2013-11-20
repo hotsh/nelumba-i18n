@@ -53,11 +53,13 @@ module Lotus
       self.translate("action.#{token}", *args)
     end
 
+    # Translates the given category for the current locale.
     def self.category(*args)
       token = args.shift
       self.translate("category.#{token}", *args)
     end
 
+    # Translates the given field for the current locale.
     def self.field(*args)
       token = args.shift
       self.translate("field.#{token}", *args)
