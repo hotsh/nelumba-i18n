@@ -58,6 +58,11 @@ module Lotus
       self.translate("category.#{token}", *args)
     end
 
+    def self.field(*args)
+      token = args.shift
+      self.translate("field.#{token}", *args)
+    end
+
     # Localize the given object for the current locale.
     def self.localize(*args)
       ::I18n.l(*args)
