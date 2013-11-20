@@ -1,0 +1,6 @@
+%lang%/%verb%/actor_pronoun_owner_pronoun_object.yml "they favorited our object"
+%lang%/%verb%/actor_owner_pronoun_object.yml         "wilkie favorited our object"
+%lang%/%verb%/actor_pronoun_object.yml               "they favorited our object"
+%lang%/%verb%/actor_owner_object.yml                 "wilkie favorited carol's object"
+%lang%/%verb%/actor_object.yml                       "wilkie favorited an object"
+%lang%/%verb%/object.yml                             "favorited an object"
