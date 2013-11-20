@@ -1,12 +1,150 @@
 en:
+  grammar:
+    # his album
+    - for: ["actor_pronoun", "object"]
+      do:  "possessive_pronoun.%actor_pronoun%.singular object.%object%"
+    # their book
+    - for: ["actors_pronoun", "object"]
+      do:  "possessive_pronoun.%actors_pronoun%.plural object.%object%"
+    # her articles
+    - for: ["actor_pronoun", "objects"]
+      do:  "possessive_pronoun.%actor%.singular object.plural_%objects%"
+    # their files
+    - for: ["actors_pronoun", "objects"]
+      do:  "possessive_pronoun.%actor%.plural object.plural_%objects%"
+    # carol's video
+    - for: ["actor", "object"]
+      do:  "%actor%'s object.%object%"
+    # wilkie's files
+    - for: ["actor", "objects"]
+      do:  "%actor%'s object.plural_%objects%"
+    # the woodworkers' list
+    - for:   ["actors", "object"]
+      match: ["actors", "s$"]
+      do:    "%actors%' object.%object%"
+    # the family's note
+    - for: ["actors", "object"]
+      do:  "%actors%' object.%object%"
+    # the musicians' files
+    - for:   ["actors", "objects"]
+      match: ["actors", "s$"]
+      do:    "%actors%' object.plural_%objects%"
+    # the group's files
+    - for: ["actors", "objects"]
+      do:  "%actors%'s object.plural_%objects%"
+    # ey posted a note
+    - for: ["actor_pronoun", "object", "verb"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object%"
+    # they posted a note
+    - for: ["actors_pronoun", "object", "verb"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object%"
+    # wilkie posted a note
+    - for: ["actor", "object", "verb"]
+      do:  "%actor% verb.%verb% object.singular_%object%"
+    # the group posted a note
+    - for: ["actors", "object", "verb"]
+      do:  "%actors% verb.%verb% object.singular_%object%"
+    # ey posted notes
+    - for: ["actor_pronoun", "objects", "verb"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects%"
+    # they posted notes
+    - for: ["actors_pronoun", "objects", "verb"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects%"
+    # wilkie posted notes
+    - for: ["actor", "objects", "verb"]
+      do:  "%actor% verb.%verb% object.plural_%objects%"
+    # the group posted notes
+    - for: ["actors", "objects", "verb"]
+      do:  "%actors% verb.%verb% object.plural_%objects%"
+    # ey posted a note to an album
+    - for: ["actor_pronoun", "object", "verb", "target"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to object.singular_%target%"
+    # they posted a note to an album
+    - for: ["actors_pronoun", "object", "verb", "target"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to object.singular_%target%"
+    # wilkie posted a note to an album
+    - for: ["actor", "object", "verb", "target"]
+      do:  "%actor% verb.%verb% object.singular_%object% to object.singular_%target%"
+    # the group posted a note to an album
+    - for: ["actors", "object", "verb", "target"]
+      do:  "%actors% verb.%verb% object.singular_%object% to object.singular_%target%"
+    # ey posted notes to an album
+    - for: ["actor_pronoun", "objects", "verb", "target"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to object.singular_%target%"
+    # they posted notes to an album
+    - for: ["actors_pronoun", "objects", "verb", "target"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to object.singular_%target%"
+    # wilkie posted notes to an album
+    - for: ["actor", "objects", "verb", "target"]
+      do:  "%actor% verb.%verb% object.plural_%objects% to object.singular_%target%"
+    # the group posted notes to an album
+    - for: ["actors", "objects", "verb", "target"]
+      do:  "%actors% verb.%verb% object.plural_%objects% to object.singular_%target%"
+    # ey posted a note to some albums
+    - for: ["actor_pronoun", "object", "verb", "targets"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+    # they posted a note to some some albums
+    - for: ["actors_pronoun", "object", "verb", "targets"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+    # wilkie posted a note to some some albums
+    - for: ["actor", "object", "verb", "targets"]
+      do:  "%actor% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+    # the group posted a note to some some albums
+    - for: ["actors", "object", "verb", "targets"]
+      do:  "%actors% verb.%verb% object.singular_%object% to some object.plural_%targets%"
+    # ey posted notes to some some albums
+    - for: ["actor_pronoun", "objects", "verb", "targets"]
+      do:  "pronoun.%actor_pronoun% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+    # they posted notes to some some albums
+    - for: ["actors_pronoun", "objects", "verb", "targets"]
+      do:  "pronoun.%actors_pronoun% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+    # wilkie posted notes to some some albums
+    - for: ["actor", "objects", "verb", "targets"]
+      do:  "%actor% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+    # the group posted notes to some some albums
+    - for: ["actors", "objects", "verb", "targets"]
+      do:  "%actors% verb.%verb% object.plural_%objects% to some object.plural_%targets%"
+    # played
+    - for: ["verb"]
+      do:  "verb.%verb%"
+    # follow
+    - for: ["action"]
+      do:  "action.%action%"
+    # mentions
+    - for: ["category"]
+      do:  "category.%category%"
+    # password
+    - for: ["field"]
+      do:  "field.%field%"
+
   action:
-    favorite: "favorite"
-    share:    "share"
-    reply:    "reply"
-    save:     "save"
+    favorite:    "favorite"
+    unfavorite:  "unfavorite"
+    follow:      "follow"
+    unfollow:    "unfollow"
+    like:        "like"
+    unlike:      "unlike"
+    mention:     "mention"
+    reply:       "reply"
+    save:        "save"
+    share:       "share"
+    unshare:     "unshare"
+    subscribe:   "subscribe"
+    unsubscribe: "unsubscribe"
+    tag:         "tag"
+    untag:       "untag"
+
+  category:
+    activities: "activities"
+    mentions:   "mentions"
+    replies:    "replies"
+    timeline:   "timeline"
 
   field:
-    title: "title"
+    title:    "title"
+    password: "password"
+    username: "username"
+    avatar:   "avatar"
 
   possessive_pronoun:
     our:   "our"
@@ -32,6 +170,7 @@ en:
     you:  "you"
     he:   "he"
     she:  "she"
+    they: "they"
     e:    "e"
     ey:   "ey"
     Tho:  "Tho"
@@ -45,6 +184,8 @@ en:
     zhe:  "zhe"
 
   verb:
+    reply:       "replied"
+    mention:     "mentioned"
     favorite:    "favorited"
     share:       "shared"
     post:        "posted"
