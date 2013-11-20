@@ -18,7 +18,7 @@ module Lotus
         verb = Lotus::I18n.verb(activity[:verb])
         if [:you, :he, :she, :e,  :ey, :Tho, :hu, :per, :thon, :jee,
             :ve,  :xe, :ze,  :zhe].include? activity[:person]
-          object = activity[:person]
+          object = Lotus::I18n.pronoun(activity[:person])
         elsif activity[:person]
           object = activity[:person]
         end
@@ -27,7 +27,8 @@ module Lotus
             :hum,  :per,   :thon, :jem, :ver, :xem,
             :zir,  :zem,   :hir,  :mer, :zhim].include? activity[:target_owner]
           target = Lotus::I18n.object(activity[:target])
-          target = "#{activity[:target_owner]} #{target}"
+          target_owner = Lotus::I18n.possessive_pronoun(activity[:target_owner])
+          target = "#{target_owner} #{target}"
         elsif activity[:target_owner]
           target = Lotus::I18n.object(activity[:target])
           target = "#{activity[:target_owner]}'s #{target}"

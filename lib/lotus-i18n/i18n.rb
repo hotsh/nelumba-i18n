@@ -35,6 +35,18 @@ module Lotus
       self.translate("object.#{token}", *args)
     end
 
+    # Translates the given pronoun for the current locale.
+    def self.pronoun(*args)
+      token = args.shift
+      self.translate("pronoun.#{token}", *args)
+    end
+
+    # Translates the given possessive pronoun for the current locale.
+    def self.possessive_pronoun(*args)
+      token = args.shift
+      self.translate("possessive_pronoun.#{token}", *args)
+    end
+
     # Translates the given action for the current locale.
     def self.action(*args)
       token = args.shift
