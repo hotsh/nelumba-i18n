@@ -126,27 +126,10 @@ module Lotus
         end
       end
 
-      locale = options[:locale].to_s || ::I18n.locale.to_s
-      default = ::I18n.default_locale.to_s
-
-      # Use the system default locale and then English as fallback
-      filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-      unless File.exist? filename
-        locale = default
-        filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-        unless File.exist? filename
-          locale = "en"
-        end
-      end
-
-      filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-      @@grammar ||= {}
-      @@grammar[filename] ||= YAML.load_file(filename)
-      grammar = @@grammar[filename]
-
+      grammar = Lotus::Locales.grammar(options)
       result = ""
 
-      grammar[locale].each do |hash|
+      grammar.each do |hash|
         if components.keys.select{|e| !hash["for"].include?(e.to_s)}.empty? &&
            components.keys.count == hash["for"].count
           if hash["match"] && hash["match"].count > 0
