@@ -1,0 +1,202 @@
+es:
+  subrules:
+    subject:
+      - for:   ["actor"]
+        do:    "%actor%"
+      - for:   ["actors"]
+        do:    "%actors%"
+      - for:   ["actor_pronoun"]
+        match: ["actor_pronoun", "^they$"]
+        do:    "pronoun.%actor_pronoun%.singular.inclusive"
+      - for:   ["actor_pronoun"]
+        do:    "pronoun.%actor_pronoun%"
+      - for:   ["actors_pronoun"]
+        match: ["actors_pronoun", "^they$"]
+        do:    "pronoun.%actors_pronoun%.plural.inclusive"
+      - for:   ["actors_pronoun"]
+        do:    "pronoun.%actors_pronoun%"
+
+    verb:
+      - for:   ["actor", "verb"]
+        do:    "verb.%verb%.third_person_singular"
+      - for:   ["actor_pronoun", "verb"]
+        match: ["actor_pronoun", "^you$"]
+        do:    "verb.%verb%.second_person_singular"
+      - for:   ["actor_pronoun", "verb"]
+        do:    "verb.%verb%.third_person_singular"
+      - for:   ["actors", "verb"]
+        do:    "verb.%verb%.third_person_plural"
+      - for:   ["actors_pronoun", "verb"]
+        do:    "verb.%verb%.third_person_plural"
+      - for:   ["verb"]
+        do:    "verb.%verb%.past_participle"
+
+    object:
+      - for:   ["object"]
+        do:    "object.singular_%object%"
+      - for:   ["objects"]
+        do:    "object.plural_%objects%"
+
+    object_possessive:
+      - for:   ["object", "object_owner"]
+        match: ["object_owner", "^el "]
+        do:    "object.singular_%object% d%object_owner%"
+      - for:   ["object", "object_owner"]
+        do:    "object.singular_%object% de %object_owner%"
+      - for:   ["objects", "object_owner"]
+        match: ["object_owner", "^el "]
+        do:    "object.plural_%objects% d%object_owner%"
+      - for:   ["objects", "object_owner"]
+        do:    "object.plural_%objects% de %object_owner%"
+      - for:   ["object", "object_owner_pronoun"]
+        match: ["object_owner_pronoun", "^our$"]
+        do:    "possessive_pronoun.%object_owner_pronoun%.inclusive.singular object.%object%"
+      - for:   ["object", "object_owner_pronoun"]
+        do:    "possessive_pronoun.%object_owner_pronoun%.singular object.%object%"
+      - for:   ["objects", "object_owner_pronoun"]
+        match: ["object_owner_pronoun", "^our$"]
+        do:    "possessive_pronoun.%object_owner_pronoun%.inclusive.plural object.plural_%objects%"
+      - for:   ["objects", "object_owner_pronoun"]
+        do:    "possessive_pronoun.%object_owner_pronoun%.plural object.plural_%objects%"
+      - for:   ["object", "object_owners"]
+        match: ["object_owners", "^el "]
+        do:    "object.singular_%object% d%object_owners%"
+      - for:   ["object", "object_owners"]
+        do:    "object.singular_%object% de %object_owners%"
+      - for:   ["objects", "object_owners"]
+        match: ["object_owners", "^el "]
+        do:    "object.plural_%objects% d%object_owners%"
+      - for:   ["objects", "object_owners"]
+        do:    "object.plural_%objects% de %object_owners%"
+      - for:   ["object", "object_owners_pronoun"]
+        match: ["object_owners_pronoun", "^our$"]
+        do:    "possessive_pronoun.%object_owners_pronoun%.inclusive.singular object.%object%"
+      - for:   ["object", "object_owners_pronoun"]
+        do:    "possessive_pronoun.%object_owners_pronoun%.singular object.%object%"
+      - for:   ["objects", "object_owners_pronoun"]
+        match: ["object_owners_pronoun", "^our$"]
+        do:    "possessive_pronoun.%object_owners_pronoun%.inclusive.plural object.plural_%objects%"
+      - for:   ["objects", "object_owners_pronoun"]
+        do:    "possessive_pronoun.%object_owners_pronoun%.plural object.plural_%objects%"
+
+    target:
+      - for:   ["target"]
+        do:    "a object.singular_%target%"
+      - for:   ["targets"]
+        do:    "a object.many_%targets%"
+
+    target_possessive:
+      - for:   ["target", "target_owner"]
+        match: ["target_owner", "^el "]
+        do:    "a object.singular_%target% d%target_owner%"
+      - for:   ["target", "target_owner"]
+        do:    "a object.singular_%target% de %target_owner%"
+      - for:   ["targets", "target_owner"]
+        match: ["target_owner", "^el "]
+        do:    "a object.many_%targets% d%target_owner%"
+      - for:   ["targets", "target_owner"]
+        do:    "a object.many_%targets% de %target_owner%"
+      - for:   ["target", "target_owner_pronoun"]
+        match: ["target_owner_pronoun", "^our$"]
+        do:    "a possessive_pronoun.%target_owner_pronoun%.inclusive.singular object.%target%"
+      - for:   ["target", "target_owner_pronoun"]
+        do:    "a possessive_pronoun.%target_owner_pronoun%.singular object.%target%"
+      - for:   ["targets", "target_owner_pronoun"]
+        match: ["target_owner_pronoun", "^our$"]
+        do:    "a possessive_pronoun.%target_owner_pronoun%.inclusive.plural object.plural_%targets%"
+      - for:   ["targets", "target_owner_pronoun"]
+        do:    "a possessive_pronoun.%target_owner_pronoun%.plural object.plural_%targets%"
+      - for:   ["target", "target_owners"]
+        match: ["target_owners", "^el "]
+        do:    "a object.singular_%target% d%target_owners%"
+      - for:   ["target", "target_owners"]
+        do:    "a object.singular_%target% de %target_owners%"
+      - for:   ["targets", "target_owners"]
+        match: ["target_owners", "^el "]
+        do:    "a object.many_%targets% d%target_owners%"
+      - for:   ["targets", "target_owners"]
+        do:    "a object.many_%targets% de %target_owners%"
+      - for:   ["target", "target_owners_pronoun"]
+        match: ["target_owners_pronoun", "^our$"]
+        do:    "a possessive_pronoun.%target_owners_pronoun%.inclusive.singular object.%target%"
+      - for:   ["target", "target_owners_pronoun"]
+        do:    "a possessive_pronoun.%target_owners_pronoun%.singular object.%target%"
+      - for:   ["targets", "target_owners_pronoun"]
+        match: ["target_owners_pronoun", "^our$"]
+        do:    "a possessive_pronoun.%target_owners_pronoun%.inclusive.plural object.plural_%targets%"
+      - for:   ["targets", "target_owners_pronoun"]
+        do:    "a possessive_pronoun.%target_owners_pronoun%.plural object.plural_%targets%"
+
+  rules:
+    # played
+    - for: ["verb"]
+      do:  "verb.%verb%.third_person_singular"
+    # follow
+    - for: ["action"]
+      do:  "action.%action%"
+    # mentions
+    - for: ["category"]
+      do:  "category.%category%"
+    # password
+    - for: ["field"]
+      do:  "field.%field%"
+
+    # wilkie posted to an album
+    - do:  "$subject$ $verb$ $target$"
+
+    # wilkie posted to hir album
+    - do:  "$subject$ $verb$ $target_possessive$"
+
+    # wilkie posted a note
+    - do:  "$subject$ $verb$ $object$"
+
+    # wilkie posted a note to an album
+    - do:  "$subject$ $verb$ $object$ $target$"
+
+    # wilkie posted a note to hir album
+    - do:  "$subject$ $verb$ $object$ $target_possessive$"
+
+    # wilkie posted carol's note
+    - do:  "$subject$ $verb$ $object_possessive$"
+
+    # wilkie posted carol's note to an album
+    - do:  "$subject$ $verb$ $object_possessive$ $target$"
+
+    # wilkie posted carol's note to hir album
+    - do:  "$subject$ $verb$ $object_possessive$ $target_possessive$"
+
+    # post carol's note to an album
+    - do:  "$verb$ $object_possessive$ $target$"
+
+    # post carol's note to hir album
+    - do:  "$verb$ $object_possessive$ $target_possessive$"
+
+    # post a note to her list
+    - do:  "$verb$ $object$ $target_possessive$"
+
+    # post a note to a list
+    - do:  "$verb$ $object$ $target$"
+
+    # post to an album
+    - do:  "$verb$ $target$"
+
+    # post to hir album
+    - do:  "$verb$ $target_possessive$"
+
+    # post carol's note
+    - do:  "$verb$ $object_possessive$"
+
+    # post a note
+    - do:  "$verb$ $object$"
+
+    # wilkie posted
+    - do:  "$subject$ $verb$"
+
+    # eve's note
+    - do:  "$object_possessive$"
+
+    # image
+    - do:  "$object$"
+
+    # wilkie
+    - do:  "$subject$"

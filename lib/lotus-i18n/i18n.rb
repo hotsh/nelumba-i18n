@@ -126,7 +126,7 @@ module Lotus
         end
       end
 
-      grammar = Lotus::Locales.grammar(options)
+      grammar = Lotus::Locales.rules(options)
       result = ""
 
       grammar.each do |hash|
@@ -135,22 +135,35 @@ module Lotus
           if hash["match"] && hash["match"].count > 0
             matches = hash["match"]
 
-            unless hash["match"][0].is_a? Array
-              matches = [hash["match"]]
-            end
-
             violations = matches.select do |rule|
-              !components[rule[0].intern].match(Regexp.new(rule[1]))
+              if rule[0] && components[rule[0].intern]
+                !components[rule[0].intern].match(Regexp.new(rule[1]))
+              else
+                false
+              end
             end
 
             next unless violations.empty?
+          end
+
+          # Do the replacement rules for components
+          if hash["replace"] && hash["replace"].count > 0
+            replaces = hash["replace"]
+
+            unless hash["replace"][0].is_a? Array
+              replaces = [hash["replace"]]
+            end
+
+            replaces.each do |rule|
+              components[rule[0].intern].gsub!(Regexp.new(rule[1]), rule[2])
+            end
           end
 
           result = hash["do"]
           components.each do |component, value|
             if value.is_a? Symbol
               result = result.gsub /[\.a-zA-Z_]*%#{Regexp.escape(component.to_s)}%[\.a-zA-Z_]*/ do |match|
-                self.translate(match.gsub("%#{component.to_s}%", value.to_s).strip)
+                self.translate(match.gsub("%#{component.to_s}%", value.to_s).strip, options)
               end
             else
               result = result.gsub("%#{component.to_s}%", value.to_s)
