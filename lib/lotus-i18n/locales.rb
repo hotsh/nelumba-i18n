@@ -61,11 +61,12 @@ module Lotus
 
     # Returns the full list of rules for the given locale.
     def self.rules(options = {})
-      grammar = self.grammar(options)
       locale  = self.locale(options)
 
       @@rules ||= {}
       return @@rules[locale] if @@rules[locale]
+
+      grammar = self.grammar(options)
 
       rules = []
       grammar["rules"].each do |rule|
@@ -86,10 +87,10 @@ module Lotus
 
           subrules = subrules[0].product(*subrules[1..-1])
 
-          require 'pp'
           subrules.each do |set|
             new_rule = {}
             new_rule["for"] = set.map{|subrule|(subrule["for"] || []).dup}.concat(rule["for"]||[]).flatten.uniq
+
             new_rule["match"] = set.map do |subrule|
               if subrule["match"] && subrule["match"].count > 0 &&
                                      !subrule["match"][0].is_a?(Array)

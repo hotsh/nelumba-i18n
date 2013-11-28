@@ -77,9 +77,9 @@ module Lotus
       components = {}
 
       if options[:actor].is_a? Symbol
-        components[:actor_pronoun]  = options[:actor]
+        components[:actor_pronoun] = options[:actor]
       else
-        components[:actor]  = options[:actor]
+        components[:actor] = options[:actor]
       end
 
       if options[:actors].is_a? Symbol
@@ -126,10 +126,10 @@ module Lotus
         end
       end
 
-      grammar = Lotus::Locales.rules(options)
+      rules = Lotus::Locales.rules(options)
       result = ""
 
-      grammar.each do |hash|
+      rules.each do |hash|
         if components.keys.select{|e| !hash["for"].include?(e.to_s)}.empty? &&
            components.keys.count == hash["for"].count
           if hash["match"] && hash["match"].count > 0
@@ -144,19 +144,6 @@ module Lotus
             end
 
             next unless violations.empty?
-          end
-
-          # Do the replacement rules for components
-          if hash["replace"] && hash["replace"].count > 0
-            replaces = hash["replace"]
-
-            unless hash["replace"][0].is_a? Array
-              replaces = [hash["replace"]]
-            end
-
-            replaces.each do |rule|
-              components[rule[0].intern].gsub!(Regexp.new(rule[1]), rule[2])
-            end
           end
 
           result = hash["do"]
