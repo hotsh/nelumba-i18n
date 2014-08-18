@@ -41,11 +41,11 @@ module Lotus
       default = ::I18n.default_locale.to_s
 
       # Use the system default locale and then English as fallback
-      filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-      unless File.exist? filename
+      filename = ::File.join(::File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
+      unless ::File.exist? filename
         locale = default
-        filename = File.join(File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
-        unless File.exist? filename
+        filename = ::File.join(::File.dirname(__FILE__), 'locales', locale, 'grammar.yml')
+        unless ::File.exist? filename
           locale = "en"
         end
       end
@@ -56,7 +56,7 @@ module Lotus
     # Returns the path to the grammar descriptions for the given locale or the
     # default locale if none is given or the given locale cannot be found.
     def self.grammar_path(options = {})
-      File.join(File.dirname(__FILE__), 'locales', self.locale(options), 'grammar.yml')
+      ::File.join(::File.dirname(__FILE__), 'locales', self.locale(options), 'grammar.yml')
     end
 
     # Returns the full list of rules for the given locale.
