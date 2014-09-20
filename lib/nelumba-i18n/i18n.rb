@@ -1,5 +1,5 @@
-# The main module for all Lotus related functionality.
-module Lotus
+# The main module for all Nelumba related functionality.
+module Nelumba
   # The internationalization and localization module.
   module I18n
     require 'i18n'
@@ -70,7 +70,7 @@ module Lotus
       ::I18n.l(*args)
     end
 
-    # Produces a sentence describing the given Lotus::Activity.
+    # Produces a sentence describing the given Nelumba::Activity.
     def self.sentence(options = {})
       options ||= {}
 
@@ -126,7 +126,7 @@ module Lotus
         end
       end
 
-      rules = Lotus::Locales.rules(options)
+      rules = Nelumba::Locales.rules(options)
       result = ""
 
       rules.each do |hash|

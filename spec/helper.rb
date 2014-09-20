@@ -7,7 +7,7 @@ end
 
 require "mocha/setup"
 
-require 'lotus-i18n'
+require 'nelumba-i18n'
 
 require 'yaml'
 

@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "lotus-i18n/version"
+require "nelumba-i18n/version"
 
 Gem::Specification.new do |s|
-  s.name        = "lotus-i18n"
-  s.version     = Lotus::I18N_VERSION
+  s.name        = "nelumba-i18n"
+  s.version     = Nelumba::I18N_VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Hackers of the Severed Hand']
   s.email       = ['hotsh@xomb.org']
-  s.homepage    = "http://github.com/hotsh/lotus-i18n"
-  s.summary     = %q{Localization strings for lotus, a generalized federated system backend for social networks with ActivityStreams/OStatus/pump.io.}
-  s.description = %q{This gem contains localization effort for lotus, a gem which allows easier implementation and utilization of distributed, federated social networks.}
+  s.homepage    = "http://github.com/hotsh/nelumba-i18n"
+  s.summary     = %q{Localization strings for nelumba, a generalized federated system backend for social networks with ActivityStreams/OStatus/pump.io.}
+  s.description = %q{This gem contains localization effort for nelumba, a gem which allows easier implementation and utilization of distributed, federated social networks.}
 
   s.add_dependency "i18n"
 

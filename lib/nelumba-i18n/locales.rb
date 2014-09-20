@@ -1,4 +1,4 @@
-module Lotus
+module Nelumba
   # Modules that will generate sentences dependent on the locale.
   module Locales
     # Returns the metadata used to build grammatical structures for the given

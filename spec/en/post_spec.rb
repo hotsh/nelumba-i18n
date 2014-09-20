@@ -1,6 +1,6 @@
 require_relative '../helper.rb'
 
-describe Lotus::I18n do
+describe Nelumba::I18n do
   describe "sentence" do
     describe "for post objects" do
       describe "with just objects" do
@@ -9,7 +9,7 @@ describe Lotus::I18n do
                   :locale => :en,
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::I18n.sentence(hash).must_equal v
+            Nelumba::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -21,7 +21,7 @@ describe Lotus::I18n do
                   :actor => "wilkie",
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::I18n.sentence(hash).must_equal v
+            Nelumba::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -34,7 +34,7 @@ describe Lotus::I18n do
                   :object_owner => "carol",
                   :object => k.intern}
           it "should translate #{hash} to '#{v}'" do
-            Lotus::I18n.sentence(hash).must_equal v
+            Nelumba::I18n.sentence(hash).must_equal v
           end
         end
       end
@@ -49,7 +49,7 @@ describe Lotus::I18n do
                     :object_owner => pronoun,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::I18n.sentence(hash).must_equal v
+              Nelumba::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -64,7 +64,7 @@ describe Lotus::I18n do
                     :actor  => pronoun,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::I18n.sentence(hash).must_equal v
+              Nelumba::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -79,7 +79,7 @@ describe Lotus::I18n do
                     :target => target,
                     :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::I18n.sentence(hash).must_equal v
+              Nelumba::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -95,7 +95,7 @@ describe Lotus::I18n do
                   :target => target,
                   :object => k.intern}
             it "should translate #{hash} to '#{v}'" do
-              Lotus::I18n.sentence(hash).must_equal v
+              Nelumba::I18n.sentence(hash).must_equal v
             end
           end
         end
@@ -113,7 +113,7 @@ describe Lotus::I18n do
                     :target_owner => pronoun,
                     :object => k.intern}
               it "should translate #{hash} to '#{v}'" do
-                Lotus::I18n.sentence(hash).must_equal v
+                Nelumba::I18n.sentence(hash).must_equal v
               end
             end
           end
@@ -133,7 +133,7 @@ describe Lotus::I18n do
                       :target_owner => pronoun,
                       :object => k.intern}
               it "should translate #{hash} to '#{v}'" do
-                Lotus::I18n.sentence(hash).must_equal v
+                Nelumba::I18n.sentence(hash).must_equal v
               end
             end
           end
