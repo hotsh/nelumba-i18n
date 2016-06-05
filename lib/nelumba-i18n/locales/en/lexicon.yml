@@ -79,7 +79,7 @@ en:
     update:      "updated"
     tag:         "tagged"
     save:        "saved"
-    make-friend: "became friends"
+    make-friend: "became friends with"
 
   object:
     article:              "article"

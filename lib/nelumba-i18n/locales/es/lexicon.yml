@@ -230,13 +230,13 @@ es:
       second_person_plural:   "guardaron"
       third_person_plural:    "guardaron"
     make-friend:
-      past-participle:        "hecho amigos"
-      first_person_singular:  "me hice amigo"
-      second_person_singular: "te has convierten en amigos"
-      third_person_singular:  "se hicieron amigos"
-      first_person_plural:    "nos hicimos amigos"
-      second_person_plural:   "hicieron amigos"
-      third_person_plural:    "hicieron amigos"
+      past-participle:        "hecho amigos de"
+      first_person_singular:  "me hice amigo de"
+      second_person_singular: "te has convierten en amigos de"
+      third_person_singular:  "se hicieron amigos de"
+      first_person_plural:    "nos hicimos amigos de"
+      second_person_plural:   "hicieron amigos de"
+      third_person_plural:    "hicieron amigos de"
 
   object:
     article:           "artículo"
